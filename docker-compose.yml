@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:15
+    restart: always
+    command: ["postgres", "-c", "listen_addresses=*"]
+    environment:
+      POSTGRES_DB: jdr_db
+      POSTGRES_USER: jdr_user
+      POSTGRES_PASSWORD: jdr_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+  web:
+    build: .
+    env_file:
+      - .env
+    restart: always
+    depends_on:
+      - db
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_SECRET_KEY: "${DJANGO_SECRET_KEY}"
+
+volumes:
+  postgres_data:
