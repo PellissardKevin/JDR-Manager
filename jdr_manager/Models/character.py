@@ -11,7 +11,6 @@ class CharacterSheet(models.Model):
     character_name = models.CharField(max_length=255)
     character_class = models.ForeignKey(CharacterClass, on_delete=models.SET_NULL, null=True, blank=True)
     race = models.CharField(max_length=100, blank=True, null=True)
-    inventory = models.TextField(blank=True, null=True)
     biography = models.TextField(blank=True, null=True)
 
     current_health = models.IntegerField()

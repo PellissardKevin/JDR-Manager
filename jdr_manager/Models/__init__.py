@@ -7,5 +7,7 @@ from .characterSkill import CharacterSkill
 from .characterXP import CharacterXP
 from .skill import Skill
 from .spell import Spell
-from .XPSystem import XpSystem
+from .xpSystem import XpSystem
 from .damage import Damage
+from .item import Item
+from .characterInventory import CharacterInventory
