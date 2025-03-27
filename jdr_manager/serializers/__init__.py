@@ -1,6 +1,6 @@
-from .campaign_serializers import CampaignSerializer, XpSystemSerializer
-from .character_serializers import CharacterSheetSerializer, CharacterXPSerializer
-from .skill_serializers import SkillSerializer
-from .spell_serializers import SpellSerializer
-from .damage_serializers import DamageSerializer
-from .user_serializers import CustomUserSerializer
+from .campaignSerializers import CampaignSerializer, XpSystemSerializer
+from .characterSerializers import CharacterSheetSerializer, CharacterXPSerializer
+from .skillSerializers import SkillSerializer
+from .spellSerializers import SpellSerializer
+from .damageSerializers import DamageSerializer
+from .userSerializers import CustomUserSerializer

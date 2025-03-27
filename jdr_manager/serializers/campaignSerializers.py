@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from jdr_manager.models import Campaign, XpSystem
-from .user_serializers import CustomUserSerializer  # Pour afficher les détails du MJ
+from .userSerializers import CustomUserSerializer  # Pour afficher les détails du MJ
 
 
 class CampaignSerializer(serializers.ModelSerializer):
