@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from jdr_manager.models import CharacterSheet, CharacterXP, Damage, Skill, Spell, CustomUser
+from jdr_manager.models import CharacterSheet, CharacterXP, Damage, Skill, Spell, CustomUser, CharacterClass
 from .damageSerializers import DamageSerializer
 from .characterXpSerializer import CharacterXPSerializer
 
@@ -7,6 +7,7 @@ class CharacterSheetSerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(queryset=CustomUser.objects.all())
     skills = serializers.PrimaryKeyRelatedField(queryset=Skill.objects.all(), many=True)
     spells = serializers.PrimaryKeyRelatedField(queryset=Spell.objects.all(), many=True)
+    character_class = serializers.PrimaryKeyRelatedField(queryset=CharacterClass.objects.all())
     injuries = DamageSerializer(many=True, required=False)
 
     # Ajouter CharacterXPSerializer pour la gestion de l'expérience

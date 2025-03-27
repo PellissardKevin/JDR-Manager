@@ -5,4 +5,3 @@ class DamageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Damage
         fields = '__all__'
-    

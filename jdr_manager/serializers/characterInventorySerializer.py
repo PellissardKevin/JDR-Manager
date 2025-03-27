@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from itemSerializer import ItemSerializer
+from .itemSerializer import ItemSerializer
 from jdr_manager.models import CharacterInventory
 
 # Serializer pour l'inventaire du personnage
