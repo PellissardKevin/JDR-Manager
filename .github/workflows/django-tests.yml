@@ -28,7 +28,7 @@ jobs:
 
       - name: Run Django tests inside the container
         run: |
-          docker compose exec -T web python manage.py test jdr_manager.tests_jdr
+          docker compose exec -T web python manage.py test jdr_manager.tests
 
       - name: Shut down containers
         run: |
