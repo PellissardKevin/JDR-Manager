@@ -41,3 +41,13 @@ class CharacterSheet(models.Model):
             self.current_health = 0
         self.save()
 
+    def get_level_from_xp(self):
+        xp_table = self.character.campaign.xp_system.generate_xp_table()
+        current_xp = self.experience_points
+        level = 1
+        for lvl, required_xp in xp_table.items():
+            if current_xp >= required_xp:
+                level = lvl
+            else:
+                break
+        return level
