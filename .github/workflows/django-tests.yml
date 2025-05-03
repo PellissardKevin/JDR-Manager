@@ -2,11 +2,9 @@ name: Django Tests
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
   pull_request:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   test:
@@ -16,14 +14,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up Docker Compose
+      - name: Set up Docker Compose environment
+        run: |
+          echo "DJANGO_SECRET_KEY=dummy-secret-for-tests" > .env
+
+      - name: Build and start containers
         run: |
           docker compose -f docker-compose.yml up -d --build
 
-      - name: Wait for DB to be ready
+      - name: Wait for the database to be ready
         run: |
           sleep 15
 
-      - name: Run tests inside Docker
+      - name: Run Django tests inside the container
         run: |
           docker compose exec -T web python manage.py test
+
+      - name: Shut down containers
+        run: |
+            docker compose down
